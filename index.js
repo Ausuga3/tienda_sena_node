@@ -32,6 +32,21 @@ app.get('/', (req, res) => {
     }
 });
 
+// Ruta para la vista de iniciar sesión
+app.get('/login', (req, res) => {
+    res.render('pages/login');
+});
+
+// Ruta para la vista de registro
+app.get('/registrarse', (req, res) => {
+    res.render('pages/registrarse');
+});
+
+// Ruta para la vista de perfil
+app.get('/perfil_usuario', (req, res) => {
+    res.render('pages/usuarios/perfil_usuario');
+});
+
 app.listen(process.env.PORT, () => {
     console.log(`Servidor en línea, puerto ${process.env.PORT}`);
 });

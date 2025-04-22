@@ -1,4 +1,16 @@
 ### CHANGELOG
+## [v1.3.3-alpha.1] - 22-04-2025
+
+### Changed
+
+- Se agregan hipervinculos del navbar
+
+### Added
+
+- Se agregan vistas de login, registrarse, mi perfil
+
+---
+
 
 ---
 
