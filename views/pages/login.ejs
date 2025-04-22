@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <%- include('../partials/head'); %>
 </head>
 <body>
+    <nav>
+        <div class="nav_styles navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="<%= '/' %>"">
+                    <img src="" alt="Logo" width="60" height="48" class="d-inline-block align-text-top">
+                </a>
+            </div>
+        </div>
+    </nav>
     
+    <section class="container-login">
+        <div class="login-modal position-relative">
+            <div class="sing-up text-end">
+                <a href="<%= '/login' %>" class="btn border-buttom border-2 border-dark">Iniciar Sesion</a>
+                <a href="<%= '/registrarse' %>" class="btn btn-disabled">Registrarse</a>
+            </div>
+                <hr>     
+            <h2>Iniciar Sesion</h2>
+            <form action="" method="post">
+                <div class="mb-3 position-relative">
+                    <label for="correo" class="form-label">Email</label>
+                    <input type="email" name="correo" class="form-control" id="correo" placeholder="Ingresa tu correo" required="">
+                </div>
+                <div class="mb-3 position-relative">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required="">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success btn-lg ">Iniciar Sesion</button>
+                </div>
+                <div class="text-center mt-1">
+                    <a href="" class="small">¿No tienes una cuenta? <strong>Inscribete</strong></a>
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
 </html>
