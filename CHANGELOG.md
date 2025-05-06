@@ -2,6 +2,14 @@
 
 ---
 
+## [v1.3.3-alpha.1] - 05-06-2025
+
+### Changed
+
+- Se agrego la vista de agregar producto. 
+
+---
+
 ## [v1.2.3-alpha.1] - 22-04-2025
 
 ### Changed

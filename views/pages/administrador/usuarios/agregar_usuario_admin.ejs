@@ -1,11 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<%- include('partials/header') %>
+
+<div class="container">
+    <% if (dato) { %>
+        <h1>Actualizar Usuario <%= dato.nombre %></h1>
+    <% } else { %>
+        <h1>Agregar Usuario</h1>
+    <% } %>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required class="form-control" value="<%= dato ? dato.nombre : '' %>"/> <br>
+        <label>Apellido:</label>
+        <input type="text" name="apellido" required class="form-control" value="<%= dato ? dato.apellido : '' %>"/> <br>
+        <label>Correo:</label>
+        <input type="email" name="correo" required class="form-control" value="<%= dato ? dato.correo : '' %>"/> <br>
+        <label>Contraseña:</label>
+        <input type="password" name="password" required class="form-control" value="<%= dato ? dato.password : '' %>"/> <br>
+        <label>Rol:</label>
+        <select name="rol" class="form-select">
+            <option value="1" <%= dato && dato.rol === 1 ? 'selected' : '' %>>Administrador</option>
+            <option value="2" <%= dato && dato.rol === 2 ? 'selected' : '' %>>Cliente</option>
+            <option value="3" <%= dato && dato.rol === 3 ? 'selected' : '' %>>Vendedor</option>
+        </select>
+        <br>
+        <label for="imagen_perfil" class="form-label">Foto de perfil</label>
+        <input type="file" class="form-control" id="imagen_perfil" name="imagen_perfil">
+        <br>
+        <% if (dato) { %>
+            <button type="submit" class="btn btn-info">Actualizar</button>
+        <% } else { %>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        <% } %>
+    </form>
+</div>
+
+<%- include('partials/footer') %>

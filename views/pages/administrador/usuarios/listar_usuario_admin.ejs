@@ -1,11 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block main%}
+<div class="container">
+
+
+    <h1>usuarios</h1>
+    <a href="{% url 'agregar_usuario' %}" class="btn btn-success mb-3">Agregar</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in data %}
+                <tr>
+                    <td>{{ x.id }}</td>
+                    <td>{{ x.nombre }}</td>
+                    <td>{{ x.apellido }}</td>
+                    <td>{{ x.get_rol_display }}</td>
+                    <td>
+                        <a href="{% url 'editar_usuario' x.id %}" class="btn btn-info">Editar</a>
+                        <a href="{% url 'eliminar_usuario' x.id %}" class="btn btn-secondary">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>    
+{% endblock %}
