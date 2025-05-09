@@ -26,9 +26,31 @@ app.get('/', (req, res) => {
     }
 });
 
+//Agregar producto
 app.get('/v1/agregar_producto', (req, res) => {
     try {
         res.render('pages/productos/agregar_producto');
+    } catch (error) {
+        console.error('Error al renderizar la vista:', error);
+        res.status(500).send('Error interno del servidor');
+    }
+});
+
+//Listar productos
+
+app.get('/v1/listar_producto', (req, res) => {
+    try {
+        res.render('pages/productos/listar_producto');
+    } catch (error) {
+        console.error('Error al renderizar la vista:', error);
+        res.status(500).send('Error interno del servidor');
+    }
+});
+
+//Detalle producto
+app.get('/v1/detalle_producto', (req, res) => {
+    try {
+        res.render('pages/productos/detalle_producto');
     } catch (error) {
         console.error('Error al renderizar la vista:', error);
         res.status(500).send('Error interno del servidor');

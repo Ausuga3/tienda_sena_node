@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Agregar Producto</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-</head>
+        <%- include('../../partials/head'); %>
 <body>
+    <%- include('../../partials/header'); %>
     <div class="container mt-5">
+        <% if (typeof mensaje !== 'undefined') { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <%= mensaje %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
         <h1>Agregar Producto</h1>
-        <form>
+        <form action="/v1/agregar_producto" method="POST">
             <div class="mb-3">
                 <label for="nombreProducto" class="form-label">Nombre del producto</label>
                 <input type="text" class="form-control" id="nombreProducto" name="nombre" required>
@@ -18,11 +21,19 @@
                 <textarea class="form-control" id="descripcionProducto" name="descripcion" rows="3" required></textarea>
             </div>
             <div class="mb-3">
+                <label for="precioProducto" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="precioProducto" name="stock" min="0" step="0.01" required>
+            </div>
+            <div class="mb-3">
                 <label for="precioProducto" class="form-label">Precio</label>
                 <input type="number" class="form-control" id="precioProducto" name="precio" min="0" step="0.01" required>
             </div>
+
             <button type="submit" class="btn btn-success">Guardar</button>
         </form>
-    </div>
+    </div><br>
+
+    <%- include('../../partials/footer'); %>
+
 </body>
 </html>

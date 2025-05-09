@@ -1,21 +1,23 @@
-const ProductoData = require('../data/producto.data');
+    const ProductoData = require('../data/producto.data');
 
-// Crear un producto
-exports.createProduct = async (req, res) => {
-    
-    try {
-        const newProduct = await Producto.findOne({stock: stock});
-        if (newProduct) {
-            return res.status(400).json({ error: 'El producto ya se encuentra registrado' });
-        }
-        const producto = await Producto.createProducto(req.body);
-        return res.status(200).json({ mensaje: 'Producto creado con éxito'});
-        // return res.redirect('/productos');
-    } catch (error) {
-        console.error(error);
-        return res.render('500', {error: error});
-        };  
-};
+    // Crear un producto
+    exports.createProduct = async (req, res) => {
+        
+        try {
+            const newProductos = await ProductoData.findProducto({ nombre: req.body.nombre });
+            if (newProductos) {
+                newProductos.nombre += 1;
+                await newProductos.save();
+                return res.status(200).json({ mensaje: 'Producto actualizado con éxito' });
+            }
+            const producto = await ProductoData.createProducto(req.body);
+            return res.status(200).json({ mensaje: 'Producto creado con éxito', producto});
+            // return res.redirect('/productos');
+        } catch (error) {
+            console.error(error);
+            return res.render('500', {error: error});
+            };  
+    };
 
 // Obtener todos los productos
 exports.getAllProducts = async (req, res) => {
