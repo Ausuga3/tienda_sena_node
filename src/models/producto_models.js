@@ -19,11 +19,6 @@ const productoSchema = new Schema({
         required: [true, 'El stock es obligatorio'],
         min: [0, 'El stock no puede ser negativo.']
     },
-    vendedor: {
-        type: Schema.Types.ObjectId,
-        ref: 'Usuario',
-        required: [true, 'El vendedor es obligatorio']
-    },
     categoria: {
         type: String,
         required: [true, 'La categoría es obligatoria'],
@@ -47,7 +42,12 @@ const productoSchema = new Schema({
         type: Number,
         default: 0,
         min: [0, 'El descuento no puede ser negativo.']
-    }
+    },
+    vendedor: {
+        type: Schema.Types.ObjectId,
+        ref: 'Usuario',
+        required: false
+    },
 });
 
 // Validación de descuento

@@ -7,7 +7,7 @@ exports.createProduct = async (req, res) => {
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
             stock: req.body.stock,
-            vendedor: req.body.vendedor, // Debe ser un ObjectId válido
+            vendedor: req.body.vendedor,
             categoria: req.body.categoria,
             color: req.body.color,
             en_oferta: req.body.en_oferta,
@@ -21,7 +21,21 @@ exports.createProduct = async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 };
+exports.listarProductosAdmin = async (req, res) => {
+    try {
+        // Si quieres mostrar el nombre del vendedor y no solo el ID, usa populate
+        const productos = await Producto.find();
+        res.render('pages/administrador/productos/listar_productos_admin', {
+            titulo: 'Tienda Sena',
+            data: productos
+        });
+    } catch (error) {
+        res.status(500).send('Error al listar productos');
+    }
+};
 
+
+/*
 // Obtener todos los productos
 exports.getAllProducts = async (req, res) => {
     try {
@@ -104,4 +118,4 @@ exports.listarProductosUsuario = async (req, res) => {
     } catch (error) {
         res.status(500).send('Error al listar productos');
     }
-};
+}; */

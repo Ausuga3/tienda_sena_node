@@ -12,63 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navegation_var ">
-      <div class="container-fluid ">
-        <div class="icon_var">
-          <img src="https://api.iconify.design/icon-park:shop.svg" alt="icon" class="icon_nav">
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active fw-medium text-white " aria-current="page" href="/">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active fw-medium text-white" aria-current="page" href="/about">Sobre Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active fw-medium text-white " aria-current="page" href="/tienda">Tienda</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active fw-medium text-white " aria-current="page" href="/productos-usuario">Productos</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Categorías
-              </a>
-              <ul class="dropdown-menu">
-                  <% if (typeof categorias !== 'undefined') { categorias.forEach(function(cat) { %>
-                  <li><a class="dropdown-item" href="#"><%= cat %></a></li>
-                  <% }); } %>
-              </ul>
-            </li>
-          </ul>
-          <!-- Formulario de búsqueda -->
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success fw-medium text-white" type="submit">Buscar</button>
-          </form>
-          <!-- Elementos de "Registrarse" e "Iniciar Sesión" -->
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item ">
-              <% if (request.session && request.session.pista) { %>
-                <a class="nav-link contact-button fw-medium text-white iniciar-sesion-btn" href="/mi-perfil">Mi Perfil</a>
-              <% } else { %>
-                <a class="nav-link contact-button fw-medium text-white" href="/registro">Regístrate</a>
-            </li>
-            <li class="nav-item iniciar-sesion-btn">
-                <a class="nav-link contact-button fw-medium text-white " href="/login">Inicie Sesión</a>
-              <% } %>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+
   <div id="notificaciones">
       <% if (typeof messages !== 'undefined' && messages.length > 0) { messages.forEach(function(message) { %>
           <div class="alert alert-<%= message.tags && message.tags !== 'error' ? message.tags : 'danger' %> alert-dismissible fade show" role="alert">

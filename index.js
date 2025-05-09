@@ -1,6 +1,6 @@
 const exp = require('express');
 const expressEjsLayouts = require('express-ejs-layouts');
-const productosRoutes = require('./routes/productos');
+const productosRoutes = require('./routes/router');
 require('dotenv').config();
 
 const app = exp();
@@ -47,6 +47,21 @@ app.get('/perfil_usuario', (req, res) => {
     res.render('pages/usuarios/perfil_usuario');
 });
 
+//Ruta par agregar productos
+app.get('/agregar_productos_admin', (req, res) => {
+    res.render('pages/administrador/productos/agregar_productos_admin');
+});
+
+//Ruta par Listar productos
+
+
+
+
+
+
+
 app.listen(process.env.PORT, () => {
     console.log(`Servidor en línea, puerto ${process.env.PORT}`);
 });
+
+
